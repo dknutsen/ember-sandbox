@@ -1,0 +1,14 @@
+{{componentConfig.componentName}}
+
+{{#if componentConfig.supportsBlocks}}
+  {{sandbox-add-child componentConfig=componentConfig elementModel=elementModel}}
+{{/if}}
+
+<div class="sandbox-builder-toolbar-controls">
+  {{#if editMode}}
+    <button {{action toggleEditMode false}} style="background:darkgreen;color:white">$</button>
+  {{else}}
+    <button {{action toggleEditMode true}}>E</button>
+  {{/if}}
+  <button {{action delete}} style="background:darkred;color:white">x</button>
+</div>

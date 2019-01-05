@@ -1,0 +1,30 @@
+.sandbox-content {
+  width: 70%;
+  margin: 0 auto;
+}
+/* TODO: media queries */
+
+
+
+/* 
+ * wacky component styles
+ */
+.wacky-button {
+  padding: 0.5rem 1rem;
+  background: darkblue;
+  color: white;
+}
+
+.wacky-card {
+  border: 1px solid grey;
+  width: 100%;
+}
+
+.wacky-card-title {
+  padding: 0.5rem;
+  border-bottom: 1px solid lightgrey;
+}
+
+.wacky-card-content {
+  padding: 1rem;
+}

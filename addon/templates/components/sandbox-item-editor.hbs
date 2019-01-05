@@ -1,0 +1,23 @@
+<div style="width:100%;font-weight:600;padding-bottom:0.5rem;margin-bottom:0.5rem;border-bottom:1px solid grey">{{componentConfig.componentName}} configuration</div>
+{{#each-in componentConfig.componentArgs as |argName argConfig|}}
+  <div style="padding-bottom:0.5rem;">
+    <div style="width:35%;display:inline-block">
+      {{argName}}:
+    </div>
+    <div style="width:60%;display:inline-block">
+      {{#if (eq argConfig.type "string")}}
+        {{input value=(mut (get elementModel.componentArgs argName))}}
+      {{else if (eq argConfig.type "boolean")}}
+        {{input type="checkbox" name=argName checked=(get elementModel.componentArgs argName)}}
+      {{else if (eq argConfig.type "array")}}
+        <select onchange={{action (mut (get elementModel.componentArgs argName)) value="target.value"}} style="width:100%">
+          {{#each argConfig.values as |val|}}
+            <option value={{val}} selected={{eq val (get elementModel.componentArgs argName)}}>{{val}}</option>
+          {{/each}}
+        </select>
+      {{/if}}
+    </div>
+  </div>
+{{else}}
+  No configurable attributes for this item
+{{/each-in}}

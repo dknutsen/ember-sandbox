@@ -1,0 +1,58 @@
+{{#if sandboxManager.builderMode}}
+
+  {{!-- this is really gross but if we're in builder mode we want to wrap in div to keep toolbar with our content but if not in builder mode we don't want wrapping div --}}
+  <div style="width:100%">
+    {{sandbox-builder-toolbar
+      componentConfig=componentConfig
+      elementModel=elementModel
+      editMode=editMode
+      toggleEditMode=(action (mut editMode))
+      delete=(action "delete")
+    }}
+    {{#if editMode}}
+      {{#sandbox-modal onClose=(action (mut editMode) false)}}
+        {{sandbox-item-editor componentConfig=componentConfig elementModel=elementModel}}
+      {{/sandbox-modal}}
+    {{/if}}
+    {{#if elementModel.supportsBlocks}}
+      {{#component elementModel.componentName componentSpreadOptions=elementModel.componentArgs as |c|}}
+        {{#each elementModel.children as |child|}}
+          {{sandbox-item
+            elementModel=child
+          }}
+        {{/each}}
+{{!--
+        {{#unless elementModel.children.length}}
+          {{#if builderMode}}
+            {{#sandbox-placeholder}}
+              This component supports blocks. Add a child to replace this placeholder.
+            {{/sandbox-placeholder}}
+          {{else}}
+            {{sandbox-placeholder}}
+          {{/if}}
+        {{/unless}}
+--}}
+      {{/component}}
+    {{else}}
+      {{component elementModel.componentName componentSpreadOptions=elementModel.componentArgs}}
+    {{/if}}
+  </div>
+
+{{else}}
+  {{#if elementModel.supportsBlocks}}
+    {{#component elementModel.componentName componentSpreadOptions=elementModel.componentArgs as |c|}}
+      {{#each elementModel.children as |child|}}
+        {{sandbox-item
+          elementModel=child
+        }}
+      {{/each}}
+{{!--
+      {{#unless elementModel.children.length}}
+        {{sandbox-placeholder}}
+      {{/unless}}
+--}}
+    {{/component}}
+  {{else}}
+    {{component elementModel.componentName componentSpreadOptions=elementModel.componentArgs}}
+  {{/if}}
+{{/if}}

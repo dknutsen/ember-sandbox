@@ -1,0 +1,7 @@
+{{opening}}
+{{#if item.supportsBlocks}}
+  {{#each item.children as |child|}}
+    {{~sandbox-code-item item=child style=style indent=childIndent indentSize=indentSize~}}
+  {{~/each~}}
+  {{closing}}
+{{/if}}

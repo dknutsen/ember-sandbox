@@ -1,0 +1,11 @@
+<select onchange={{action (mut newChildItem) value="target.value"}}>
+  <option value="" selected={{eq newChildItem ""}}>[select new child]</option>
+  {{#each-in sandboxManager.config as |namespace namespaceComponents|}}
+    <optgroup label={{namespace}}>
+      {{#each-in namespaceComponents as |shortName componentConfig|}}
+        <option value={{componentConfig.componentName}} selected={{eq newChildItem componentConfig.componentName}}>{{shortName}}</option>
+      {{/each-in}}
+    </optgroup>
+  {{/each-in}}
+</select>
+<button {{action "createChildItem" newChildItem}} disabled={{not newChildItem}}>Add</button>

@@ -1,3 +1,17 @@
-<h2 id="title">Welcome to Ember</h2>
+{{!-- TODO: move to a sub-route --}}
+<button {{action (mut sandboxManager.builderMode) (not sandboxManager.builderMode)}} style="position:fixed;top:0;right:0">{{if sandboxManager.builderMode "View Mode" "Builder Mode"}}</button>
+<div class="sandbox-content">
+  {{sandbox-item elementModel=root}}
+
+  <br/>
+
+  {{sandbox-code root=root style="classic"}}
+  {{sandbox-code root=root style="anglebracket"}}
+
+  <br/>
+
+  {{textarea value=templateContent}}
+  {{sandbox-freeform templateContent=templateContent}}
+</div>
 
 {{outlet}}

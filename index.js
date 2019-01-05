@@ -1,5 +1,9 @@
 'use strict';
 
 module.exports = {
-  name: 'ember-sandbox'
+  name: require('./package').name,
+
+  included(app) {
+    app.import('vendor/ember/ember-template-compiler.js');
+  },
 };
