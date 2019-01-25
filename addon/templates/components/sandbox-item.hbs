@@ -21,17 +21,6 @@
             elementModel=child
           }}
         {{/each}}
-{{!--
-        {{#unless elementModel.children.length}}
-          {{#if builderMode}}
-            {{#sandbox-placeholder}}
-              This component supports blocks. Add a child to replace this placeholder.
-            {{/sandbox-placeholder}}
-          {{else}}
-            {{sandbox-placeholder}}
-          {{/if}}
-        {{/unless}}
---}}
       {{/component}}
     {{else}}
       {{component elementModel.componentName componentSpreadOptions=elementModel.componentArgs}}
@@ -46,11 +35,6 @@
           elementModel=child
         }}
       {{/each}}
-{{!--
-      {{#unless elementModel.children.length}}
-        {{sandbox-placeholder}}
-      {{/unless}}
---}}
     {{/component}}
   {{else}}
     {{component elementModel.componentName componentSpreadOptions=elementModel.componentArgs}}

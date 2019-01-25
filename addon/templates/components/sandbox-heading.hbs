@@ -1,12 +1,12 @@
-{{#if (eq headingLevel 'h1')}}
+{{#if (eq headingLevel "h1")}}
   <h1>{{yield}}</h1>
-{{else if (eq headingLevel 'h2')}}
+{{else if (eq headingLevel "h2")}}
   <h2>{{yield}}</h2>
-{{else if (eq headingLevel 'h3')}}
+{{else if (eq headingLevel "h3")}}
   <h3>{{yield}}</h3>
-{{else if (eq headingLevel 'h4')}}
+{{else if (eq headingLevel "h4")}}
   <h4>{{yield}}</h4>
-{{else if (eq headingLevel 'h5')}}
+{{else if (eq headingLevel "h5")}}
   <h5>{{yield}}</h5>
 {{else}}
   <h6>{{yield}}</h6>

@@ -1,7 +1,7 @@
 ember-sandbox
 ==============================================================================
 
-[Short description of the addon.]
+Ember Sandbox is an addon that uses a little magic to allow you to play with your Ember components in a WSYWIG-style fashion.
 
 Installation
 ------------------------------------------------------------------------------
@@ -14,8 +14,9 @@ ember install ember-sandbox
 Usage
 ------------------------------------------------------------------------------
 
-[Longer description of how to use the addon in apps.]
-
+* install ember-sandbox in your addon
+* configure the components you wish to allow sandboxing by extending the sandbox-manager service (see dummy app for example)
+* render a sandbox-item component somewhere
 
 Contributing
 ------------------------------------------------------------------------------
